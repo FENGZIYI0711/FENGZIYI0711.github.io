@@ -14,4 +14,43 @@
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 
+<!-- Typewriter effect styles -->
+<style>
+  .typewriter-active {
+    border-right: 2.5px solid currentColor;
+    animation: blink-cursor 0.85s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .typewriter-done {
+    border-right: none;
+    animation: none;
+  }
+  @keyframes blink-cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: currentColor; }
+  }
+  .typewriter-container {
+    margin: 1.5em 0 1em 0;
+  }
+  .typewriter-heading {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+  }
+  @media (max-width: 768px) {
+    .typewriter-heading {
+      font-size: 1.25em;
+      white-space: normal;
+    }
+    .typewriter-active {
+      white-space: normal;
+      border-right: none;
+      animation: none;
+    }
+  }
+</style>
+
 <!-- end custom head snippets -->
