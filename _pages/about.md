@@ -16,19 +16,17 @@ I am **Ziyi Feng**, an undergraduate student in the **Information Security Elite
 ## 🎓 Education
 
 **University of Science and Technology Beijing (USTB)** — Beijing, China  
-*B.S. in Information Security (Elite Program)*  
-September 2023 – Present
+*NATIONAL COLLEGE FOR EXCELLENT ENGINEERS USTB, B.S. in Information Security (Elite Program)*  
+September 2023 – Present 
 
-- **Cumulative GPA:** 3.77 / 4.0 (88.9/100)
-- **Ranking:** 5 / 73 (6.85%)
 
 ## 🔬 Research Interests
 
 My research focuses on **large language models (LLMs)** and **neural network architectures**, with particular emphasis on:
 
-- ⚡ **Efficient training mechanisms** for Transformer architectures (e.g., Direct Feedback Alignment)
-- 🧠 **Evaluation and alignment** of long-context language models (LLM-as-a-Judge)
-- 🏥 **Medical AI** and data fine-tuning for domain-specific applications
+- ♟️ **Efficient training mechanisms** for Transformer architectures (e.g., Direct Feedback Alignment)
+- 🤖 **Evaluation and alignment** of long-context language models (LLM-as-a-Judge)
+- 🩻 **Medical AI** and data fine-tuning for domain-specific applications
 
 ## 🧪 Research Experience
 
