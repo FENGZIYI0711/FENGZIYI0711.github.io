@@ -2,153 +2,452 @@
 
 <style>
   .archive {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     float: none;
     padding-right: 0;
   }
-  
+
   @media (min-width: 80em) {
     .archive {
-      width: 70%;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 64em) {
+    .archive {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+
+  /* Custom overrides for better visual */
+  .page__title {
+    display: none;
+  }
+
+  .cv-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .cv-header {
+    text-align: center;
+    border-bottom: 3px solid var(--global-base-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cv-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+    color: var(--global-text-color);
+  }
+
+  .cv-header-label {
+    font-size: 1.1rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 1rem;
+  }
+
+  .cv-contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .cv-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .cv-contact-item a {
+    color: var(--global-link-color);
+    text-decoration: none;
+  }
+
+  .cv-contact-item a:hover {
+    text-decoration: underline;
+  }
+
+  .cv-profiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .cv-profile-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--global-link-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .cv-profile-item:hover {
+    text-decoration: underline;
+  }
+
+  .cv-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .cv-section h2 {
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--global-base-color);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.2rem;
+    color: var(--global-text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cv-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cv-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cv-item-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--global-text-color);
+  }
+
+  .cv-item-date {
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+  }
+
+  .cv-item-subtitle {
+    font-size: 0.95rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .cv-item-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--global-text-color);
+  }
+
+  .cv-item-highlights {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .cv-item-highlights li {
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+  }
+
+  .cv-item-courses {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+  }
+
+  .cv-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .cv-skill-category h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--global-text-color);
+  }
+
+  .cv-skill-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .cv-skill-keyword {
+    background-color: var(--global-bg-color);
+    border: 1px solid var(--global-border-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--global-text-color);
+  }
+
+  .cv-languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cv-language {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .cv-language-name {
+    font-weight: 700;
+    color: var(--global-text-color);
+  }
+
+  .cv-language-fluency {
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+  }
+
+  .cv-interests {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .cv-interest h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--global-text-color);
+  }
+
+  .cv-interest-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .cv-interest-keyword {
+    background-color: var(--global-bg-color);
+    border: 1px solid var(--global-border-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--global-text-color);
+  }
+
+  .cv-download {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--global-border-color);
+  }
+
+  .cv-download a {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--global-base-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+
+  .cv-download a:hover {
+    opacity: 0.9;
+  }
+
+  @media print {
+    .cv-container {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .cv-header {
+      border-bottom-color: #333;
+    }
+
+    .cv-section h2 {
+      border-bottom-color: #333;
+    }
+
+    .cv-skill-keyword,
+    .cv-interest-keyword {
+      border: 1px solid #ccc;
+      background-color: transparent;
+    }
+
+    .masthead,
+    .page__footer,
+    .cv-download {
+      display: none !important;
+    }
+
+    .archive {
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
   }
 </style>
 
 <div class="cv-container">
-  <!-- Basic Information -->
+  <!-- Header -->
   <div class="cv-section cv-header">
     <h1>{{ cv.basics.name }}</h1>
     {% if cv.basics.label %}
-    <h2>{{ cv.basics.label }}</h2>
+    <div class="cv-header-label">{{ cv.basics.label }}</div>
     {% endif %}
-    
-    <div class="cv-contact">
+
+    <div class="cv-contact-info">
       {% if cv.basics.email %}
       <div class="cv-contact-item">
-        <i class="fas fa-envelope"></i> {{ cv.basics.email }}
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:{{ cv.basics.email }}">{{ cv.basics.email }}</a>
       </div>
       {% endif %}
-      
+
       {% if cv.basics.phone %}
       <div class="cv-contact-item">
         <i class="fas fa-phone"></i> {{ cv.basics.phone }}
       </div>
       {% endif %}
-      
+
       {% if cv.basics.website %}
       <div class="cv-contact-item">
-        <i class="fas fa-globe"></i> <a href="{{ cv.basics.website }}" target="_blank">{{ cv.basics.website }}</a>
+        <i class="fas fa-globe"></i>
+        <a href="{{ cv.basics.website }}" target="_blank">{{ cv.basics.website }}</a>
       </div>
       {% endif %}
-      
+
       {% if cv.basics.location.city %}
       <div class="cv-contact-item">
-        <i class="fas fa-map-marker-alt"></i> {{ cv.basics.location.city }}{% if cv.basics.location.region %}, {{ cv.basics.location.region }}{% endif %}{% if cv.basics.location.countryCode %}, {{ cv.basics.location.countryCode }}{% endif %}
+        <i class="fas fa-map-marker-alt"></i>
+        {{ cv.basics.location.city }}{% if cv.basics.location.region %}, {{ cv.basics.location.region }}{% endif %}
       </div>
       {% endif %}
     </div>
-    
+
     {% if cv.basics.profiles.size > 0 %}
     <div class="cv-profiles">
       {% for profile in cv.basics.profiles %}
-      <a href="{{ profile.url }}" target="_blank" class="cv-profile-link">
-        <i class="fab fa-{{ profile.network | downcase }}"></i> {{ profile.network }}
+      {% if profile.url %}
+      <a href="{{ profile.url }}" target="_blank" class="cv-profile-item">
+        {% assign net_lower = profile.network | downcase %}
+        {% if net_lower == 'google scholar' %}
+          <i class="ai ai-google-scholar"></i>
+        {% elsif net_lower == 'orcid' %}
+          <i class="ai ai-orcid"></i>
+        {% elsif net_lower == 'arxiv' %}
+          <i class="ai ai-arxiv"></i>
+        {% elsif net_lower == 'dblp' %}
+          <i class="ai ai-dblp"></i>
+        {% else %}
+          <i class="fab fa-{{ net_lower | replace: ' ', '-' }}"></i>
+        {% endif %}
+        {{ profile.network }}
       </a>
+      {% endif %}
       {% endfor %}
     </div>
     {% endif %}
   </div>
-  
+
   {% if cv.basics.summary %}
   <!-- Summary -->
   <div class="cv-section">
-    <h2>Summary</h2>
-    <p>{{ cv.basics.summary }}</p>
+    <h2><i class="fas fa-user"></i> Summary</h2>
+    <p class="cv-item-summary">{{ cv.basics.summary }}</p>
   </div>
   {% endif %}
-  
+
   {% if cv.education.size > 0 %}
   <!-- Education -->
   <div class="cv-section">
-    <h2>Education</h2>
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
     <ul class="cv-list">
       {% for education in cv.education %}
       <li class="cv-item">
         <div class="cv-item-header">
-          <div class="cv-item-title">{{ education.area }}</div>
-          <div class="cv-item-date">{{ education.endDate }}</div>
+          <div class="cv-item-title">{{ education.institution }}</div>
+          <div class="cv-item-date">{{ education.startDate }}{% if education.endDate %} – {{ education.endDate }}{% endif %}</div>
         </div>
-        <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ education.institution }}</div>
-          {% if education.gpa %}
-          <div class="cv-item-detail">GPA: {{ education.gpa }}</div>
-          {% endif %}
-          {% if education.courses.size > 0 %}
-          <div class="cv-item-detail">
-            <strong>Courses:</strong> {{ education.courses | join: ", " }}
-          </div>
-          {% endif %}
-        </div>
+        <div class="cv-item-subtitle">{{ education.area }}{% if education.studyType %} ({{ education.studyType }}){% endif %}</div>
+        {% if education.gpa %}
+        <div class="cv-item-summary">GPA: {{ education.gpa }}</div>
+        {% endif %}
+        {% if education.courses.size > 0 %}
+        <div class="cv-item-courses"><strong>Courses:</strong> {{ education.courses | join: ", " }}</div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
-  
+
   {% if cv.work.size > 0 %}
   <!-- Work Experience -->
   <div class="cv-section">
-    <h2>Work Experience</h2>
+    <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
     <ul class="cv-list">
       {% for work in cv.work %}
       <li class="cv-item">
         <div class="cv-item-header">
           <div class="cv-item-title">{{ work.position }}</div>
-          <div class="cv-item-date">{{ work.startDate }}{% if work.endDate %} - {{ work.endDate }}{% endif %}</div>
+          <div class="cv-item-date">{{ work.startDate }}{% if work.endDate %} – {{ work.endDate }}{% endif %}</div>
         </div>
-        <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ work.company }}</div>
-          {% if work.summary %}
-          <div class="cv-item-detail">{{ work.summary }}</div>
-          {% endif %}
-          {% if work.highlights.size > 0 %}
-          <ul class="cv-highlights">
-            {% for highlight in work.highlights %}
-            <li>{{ highlight }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </div>
+        <div class="cv-item-subtitle">{{ work.company }}</div>
+        {% if work.summary %}
+        <div class="cv-item-summary">{{ work.summary }}</div>
+        {% endif %}
+        {% if work.highlights.size > 0 %}
+        <ul class="cv-item-highlights">
+          {% for highlight in work.highlights %}
+          <li>{{ highlight }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
-  
+
   {% if cv.skills.size > 0 %}
   <!-- Skills -->
   <div class="cv-section">
-    <h2>Skills</h2>
+    <h2><i class="fas fa-tools"></i> Skills</h2>
     <div class="cv-skills">
       {% for skill in cv.skills %}
       <div class="cv-skill-category">
         <h3>{{ skill.name }}</h3>
-        <ul class="cv-skill-list">
+        <div class="cv-skill-keywords">
           {% for keyword in skill.keywords %}
-          <li>{{ keyword }}</li>
+          <span class="cv-skill-keyword">{{ keyword }}</span>
           {% endfor %}
-        </ul>
+        </div>
       </div>
       {% endfor %}
     </div>
   </div>
   {% endif %}
-  
+
   {% if cv.publications.size > 0 %}
   <!-- Publications -->
   <div class="cv-section">
-    <h2>Publications</h2>
+    <h2><i class="fas fa-book"></i> Publications</h2>
     <ul class="cv-list">
       {% for publication in cv.publications %}
       <li class="cv-item">
@@ -156,27 +455,25 @@
           <div class="cv-item-title">{{ publication.name }}</div>
           <div class="cv-item-date">{{ publication.releaseDate | slice: 0, 4 }}</div>
         </div>
-        <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ publication.publisher }}</div>
-          {% if publication.summary %}
-          <div class="cv-item-detail">{{ publication.summary }}</div>
-          {% endif %}
-          {% if publication.website %}
-          <div class="cv-item-detail">
-            <a href="{{ publication.website }}" target="_blank">View Publication</a>
-          </div>
-          {% endif %}
+        <div class="cv-item-subtitle">{{ publication.publisher }}</div>
+        {% if publication.summary %}
+        <div class="cv-item-summary">{{ publication.summary }}</div>
+        {% endif %}
+        {% if publication.website %}
+        <div class="cv-item-summary">
+          <a href="{{ publication.website }}" target="_blank">View Publication <i class="fas fa-external-link-alt" style="font-size:0.75em;"></i></a>
         </div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
-  
+
   {% if cv.presentations.size > 0 %}
-  <!-- Presentations/Talks -->
+  <!-- Presentations / Talks -->
   <div class="cv-section">
-    <h2>Presentations</h2>
+    <h2><i class="fas fa-chalkboard-user"></i> Presentations</h2>
     <ul class="cv-list">
       {% for talk in cv.presentations %}
       <li class="cv-item">
@@ -184,25 +481,23 @@
           <div class="cv-item-title">{{ talk.name }}</div>
           <div class="cv-item-date">{{ talk.date | slice: 0, 4 }}</div>
         </div>
-        <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ talk.event }}</div>
-          {% if talk.location %}
-          <div class="cv-item-detail">{{ talk.location }}</div>
-          {% endif %}
-          {% if talk.description %}
-          <div class="cv-item-detail">{{ talk.description }}</div>
-          {% endif %}
-        </div>
+        <div class="cv-item-subtitle">{{ talk.event }}</div>
+        {% if talk.location %}
+        <div class="cv-item-summary">{{ talk.location }}</div>
+        {% endif %}
+        {% if talk.description %}
+        <div class="cv-item-summary">{{ talk.description }}</div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
-  
+
   {% if cv.teaching.size > 0 %}
   <!-- Teaching -->
   <div class="cv-section">
-    <h2>Teaching</h2>
+    <h2><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
     <ul class="cv-list">
       {% for teaching in cv.teaching %}
       <li class="cv-item">
@@ -210,25 +505,23 @@
           <div class="cv-item-title">{{ teaching.course }}</div>
           <div class="cv-item-date">{{ teaching.date | slice: 0, 4 }}</div>
         </div>
-        <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ teaching.institution }}</div>
-          {% if teaching.role %}
-          <div class="cv-item-detail">Role: {{ teaching.role }}</div>
-          {% endif %}
-          {% if teaching.description %}
-          <div class="cv-item-detail">{{ teaching.description }}</div>
-          {% endif %}
-        </div>
+        <div class="cv-item-subtitle">{{ teaching.institution }}</div>
+        {% if teaching.role %}
+        <div class="cv-item-summary">Role: {{ teaching.role }}</div>
+        {% endif %}
+        {% if teaching.description %}
+        <div class="cv-item-summary">{{ teaching.description }}</div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
-  
+
   {% if cv.portfolio.size > 0 %}
-  <!-- Portfolio -->
+  <!-- Portfolio / Projects -->
   <div class="cv-section">
-    <h2>Portfolio</h2>
+    <h2><i class="fas fa-folder-open"></i> Projects</h2>
     <ul class="cv-list">
       {% for item in cv.portfolio %}
       <li class="cv-item">
@@ -236,75 +529,76 @@
           <div class="cv-item-title">{{ item.name }}</div>
           <div class="cv-item-date">{{ item.date | slice: 0, 4 }}</div>
         </div>
-        <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ item.category | capitalize }}</div>
-          {% if item.description %}
-          <div class="cv-item-detail">{{ item.description }}</div>
-          {% endif %}
-          {% if item.url %}
-          <div class="cv-item-detail">
-            <a href="{{ item.url }}" target="_blank">View Project</a>
-          </div>
-          {% endif %}
+        {% if item.description %}
+        <div class="cv-item-summary">{{ item.description }}</div>
+        {% endif %}
+        {% if item.url %}
+        <div class="cv-item-summary">
+          <a href="{{ item.url }}" target="_blank">View Project <i class="fas fa-external-link-alt" style="font-size:0.75em;"></i></a>
         </div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
-  
+
   {% if cv.languages.size > 0 %}
   <!-- Languages -->
   <div class="cv-section">
-    <h2>Languages</h2>
-    <ul class="cv-list">
+    <h2><i class="fas fa-language"></i> Languages</h2>
+    <div class="cv-languages">
       {% for language in cv.languages %}
-      <li class="cv-item">
-        <div class="cv-item-content">
-          <div class="cv-item-title">{{ language.language }}</div>
-          <div class="cv-item-detail">{{ language.fluency }}</div>
-        </div>
-      </li>
+      <div class="cv-language">
+        <div class="cv-language-name">{{ language.language }}</div>
+        <div class="cv-language-fluency">{{ language.fluency }}</div>
+      </div>
       {% endfor %}
-    </ul>
+    </div>
   </div>
   {% endif %}
-  
+
   {% if cv.interests.size > 0 %}
   <!-- Interests -->
   <div class="cv-section">
-    <h2>Interests</h2>
-    <ul class="cv-list">
+    <h2><i class="fas fa-heart"></i> Interests</h2>
+    <div class="cv-interests">
       {% for interest in cv.interests %}
-      <li class="cv-item">
-        <div class="cv-item-content">
-          <div class="cv-item-title">{{ interest.name }}</div>
-          {% if interest.keywords.size > 0 %}
-          <div class="cv-item-detail">{{ interest.keywords | join: ", " }}</div>
-          {% endif %}
+      <div class="cv-interest">
+        <h3>{{ interest.name }}</h3>
+        {% if interest.keywords.size > 0 %}
+        <div class="cv-interest-keywords">
+          {% for keyword in interest.keywords %}
+          <span class="cv-interest-keyword">{{ keyword }}</span>
+          {% endfor %}
         </div>
-      </li>
+        {% endif %}
+      </div>
       {% endfor %}
-    </ul>
+    </div>
   </div>
   {% endif %}
-  
+
   {% if cv.references.size > 0 %}
   <!-- References -->
   <div class="cv-section">
-    <h2>References</h2>
+    <h2><i class="fas fa-quote-left"></i> References</h2>
     <ul class="cv-list">
       {% for reference in cv.references %}
       <li class="cv-item">
-        <div class="cv-item-content">
-          <div class="cv-item-title">{{ reference.name }}</div>
-          {% if reference.reference %}
-          <div class="cv-item-detail">{{ reference.reference }}</div>
-          {% endif %}
-        </div>
+        <div class="cv-item-title">{{ reference.name }}</div>
+        {% if reference.reference %}
+        <div class="cv-item-summary" style="font-style:italic;">{{ reference.reference }}</div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
+
+  <div class="cv-download">
+    <a href="{{ base_path }}/files/cv.pdf" target="_blank">
+      <i class="fas fa-file-pdf"></i> Download CV as PDF
+    </a>
+  </div>
 </div>
