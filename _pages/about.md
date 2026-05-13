@@ -16,7 +16,7 @@ I am **Ziyi Feng**, an undergraduate student in the **Information Security Elite
 ## 🎓 Education
 
 **University of Science and Technology Beijing (USTB)** — Beijing, China  
-*NATIONAL COLLEGE FOR EXCELLENT ENGINEERS USTB, B.S. in Information Security (Elite Program)*  
+*National College For Excellent Engineers USTB, B.S. in Information Security (Elite Program)*  
 September 2023 – Present 
 
 
