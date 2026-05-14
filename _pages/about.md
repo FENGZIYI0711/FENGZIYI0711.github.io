@@ -22,7 +22,7 @@ redirect_from:
     <span class="stat-label">Research Projects</span>
   </div>
   <div class="stat-item">
-    <span class="stat-number"><span class="counter" data-counter-target="5">0</span>+</span>
+    <span class="stat-number"><span class="counter" data-counter-target="10">0</span>+</span>
     <span class="stat-label">Competition Awards</span>
   </div>
   <div class="stat-item">
@@ -30,7 +30,7 @@ redirect_from:
     <span class="stat-label">Papers Submitted</span>
   </div>
   <div class="stat-item">
-    <span class="stat-number"><span class="counter" data-counter-target="2">0</span></span>
+    <span class="stat-number"><span class="counter" data-counter-target="5">0</span></span>
     <span class="stat-label">Scholarships</span>
   </div>
 </div>
