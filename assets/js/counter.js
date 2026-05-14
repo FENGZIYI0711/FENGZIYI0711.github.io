@@ -8,17 +8,26 @@
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function animateCounter(el, target, duration) {
-    duration = duration || 1500;
-    var start = 0;
+  function animateCounter(el, target) {
+    // Dynamic duration: each digit takes ~250ms, but clamp between 600ms and 2000ms
+    var duration = Math.min(2000, Math.max(600, target * 250));
     var startTime = null;
+    var lastValue = -1;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
-      // Ease out cubic
-      var ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(ease * target);
+
+      // Ease-out quad: fast start, smooth landing
+      var ease = 1 - (1 - progress) * (1 - progress);
+      var current = Math.round(ease * target);
+
+      // Only update DOM when value changes to avoid unnecessary reflows
+      if (current !== lastValue) {
+        el.textContent = current;
+        lastValue = current;
+      }
+
       if (progress < 1) {
         window.requestAnimationFrame(step);
       } else {
@@ -44,8 +53,7 @@
         if (entry.isIntersecting) {
           var el = entry.target;
           var target = parseInt(el.getAttribute('data-counter-target'), 10);
-          var duration = parseInt(el.getAttribute('data-counter-duration'), 10) || 1500;
-          animateCounter(el, target, duration);
+          animateCounter(el, target);
           observer.unobserve(el);
         }
       });
